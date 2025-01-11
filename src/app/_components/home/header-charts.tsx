@@ -24,7 +24,32 @@ ChartJS.register(
   Legend,
 );
 
-function getLineChart(chartData: any, chartOptions: any) {
+interface ChartData {
+  labels: string[];
+  datasets: {
+    data: number[];
+    borderColor: string;
+    backgroundColor: string;
+    tension: number;
+    fill: boolean;
+  }[];
+}
+
+interface ChartOptions {
+  maintainAspectRatio: boolean;
+  scales: {
+    x: { display: boolean };
+    y: { display: boolean };
+  };
+  plugins: {
+    legend: { display: boolean };
+  };
+  elements: {
+    point: { radius: number };
+  };
+}
+
+function getLineChart(chartData: ChartData, chartOptions: ChartOptions) {
   if (!chartData) return null;
   return <Line data={chartData} options={chartOptions} />;
 }

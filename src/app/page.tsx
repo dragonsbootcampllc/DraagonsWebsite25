@@ -6,7 +6,7 @@ import {
   SuccessStorySection,
   ValuePropositionSection,
   WhyDragonsSection,
-  PartnersSection
+  PartnersSection,
 } from "./_components/home";
 
 export default function Home() {

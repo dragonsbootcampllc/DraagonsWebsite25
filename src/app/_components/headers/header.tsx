@@ -1,9 +1,9 @@
 import React from "react";
-import { Particles, AnimatedShinyText } from "../ui";
+import { AnimatedShinyText } from "../ui";
 import { HiMiniArrowLongRight } from "react-icons/hi2";
 import { cn } from "~/lib/utils";
 import { Button } from "../buttons";
-import { ButtonProps, ButtonVariant } from "~/types/props";
+import { type ButtonProps, ButtonVariant } from "~/types/props";
 import { Description, Title } from "../typography";
 
 type HeaderProps = {
@@ -25,14 +25,6 @@ export default function ({
 }: HeaderProps) {
   return (
     <div className="box-border flex min-h-screen w-full flex-col items-center justify-start p-20">
-      {/* <Particles
-        className="absolute inset-0 z-0"
-        quantity={100}
-        ease={80}
-        color="#ffffff"
-        refresh
-      /> */}
-
       <div className="flex max-w-7xl flex-col items-center justify-start gap-6">
         {/* Sub Title */}
         {subtitle && (
@@ -55,7 +47,7 @@ export default function ({
         {description && <Description>{description}</Description>}
 
         {/* CTA */}
-        {(primaryButton || secondaryButton) && (
+        {(primaryButton ?? secondaryButton) && (
           <div className="flex gap-4">
             {primaryButton && (
               <Button

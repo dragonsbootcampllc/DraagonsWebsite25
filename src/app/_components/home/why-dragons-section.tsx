@@ -1,11 +1,10 @@
 import React from "react";
 import {
   BentoCard,
-  BentoCardProps,
+  type BentoCardProps,
   BentoGrid,
   Globe,
   Marquee,
-  Particles,
 } from "../ui";
 import { Title } from "../typography";
 import { FaUsers } from "react-icons/fa";
@@ -97,7 +96,7 @@ export default function () {
   return (
     <div className="relative w-full">
       <div className="m-auto w-full max-w-7xl p-20 px-2">
-        <Title children={title} />
+        <Title>{title}</Title>
         <BentoGrid className="w-full">
           {cardsData.map((card, index) => (
             <BentoCard key={index} {...card} />

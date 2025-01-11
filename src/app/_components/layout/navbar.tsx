@@ -5,6 +5,7 @@ import { cn } from "~/lib/utils";
 import { Button } from "../buttons";
 import { usePathname } from "next/navigation";
 import { ButtonVariant } from "~/types/props";
+import { AnimatedShinyText } from "../ui";
 
 const Logo = () => {
   return (
@@ -60,7 +61,7 @@ const renderLinks = (links: NestedLink[] | Link[]) => {
 export default function () {
   const currentPath = usePathname();
   const [counter, setCounter] = useState(0);
-  let [links, setLinks] = useState<NestedLink[]>([
+  const [links, setLinks] = useState<NestedLink[]>([
     {
       label: "Home",
       href: "/",
@@ -86,7 +87,7 @@ export default function () {
         setCounter(counter + 1);
 
         link.active =
-          link.href?.includes(currentPath + "/") || currentPath === link.href;
+          link.href?.includes(currentPath + "/") ?? currentPath === link.href;
         return link;
       }),
     );
@@ -99,18 +100,27 @@ export default function () {
   return (
     <div className="fixed left-0 top-0 z-[99999] h-16 w-full border-b-2 border-primary-800/80 bg-primary-950/20 backdrop-blur-lg">
       <div className="mx-auto grid h-full w-full max-w-7xl grid-cols-3 items-center justify-items-start">
-        <Logo />
+        <div className="flex gap-4">
+          <Logo />
+          <div
+            className={cn(
+              "group rounded-full border border-white/5 bg-primary-800 text-base font-semibold text-white transition-all ease-in hover:cursor-pointer hover:bg-primary-750",
+            )}
+          >
+            <AnimatedShinyText className="inline-flex h-full w-full items-center justify-center px-4 transition ease-out group-hover:text-primary-150 group-hover:duration-300">
+              <span>Alpha</span>
+            </AnimatedShinyText>
+          </div>
+        </div>
         <div className="flex h-full items-center gap-6 justify-self-center">
           {renderLinks(links)}
         </div>
 
         <div className="flex h-full items-center gap-3 justify-self-end">
-          <Button children="book a demo" className="px-4 py-2" />
-          <Button
-            children="Sign up"
-            variant={ButtonVariant.Secondary}
-            className="px-4 py-2"
-          />
+          <Button className="px-4 py-2">book a demo</Button>
+          <Button variant={ButtonVariant.Secondary} className="px-4 py-2">
+            Sign up
+          </Button>
         </div>
       </div>
     </div>

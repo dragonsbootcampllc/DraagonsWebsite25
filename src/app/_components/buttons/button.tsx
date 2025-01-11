@@ -1,6 +1,6 @@
 // Next.js provides a TypeScript-first development experience. [[1],[2]]
 import React from "react";
-import { ButtonProps, ButtonVariant } from "~/types/props";
+import { type ButtonProps, ButtonVariant } from "~/types/props";
 import { ShinyButton } from "../ui";
 import Link from "next/link";
 import { cn } from "~/lib/utils";
@@ -47,5 +47,5 @@ export default function ({
       break;
   }
 
-  return <Link href={href || ""}>{buttonElement}</Link>;
+  return <Link href={href ?? ""}>{buttonElement}</Link>;
 }

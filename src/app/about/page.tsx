@@ -1,10 +1,18 @@
 import React from "react";
+import { Header } from "../_components/headers";
+import { VisionMission } from "../_components/about";
 
-export default function About() {
+export default function () {
+  const headerProps = {
+    subtitle: "about us",
+    title: "Bridging Global Engineering Talent with Industry Leaders",
+  };
+
   return (
-    <div className="flex h-screen flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold">About</h1>
-      <p className="text-lg">This is the about page</p>
+    <div className="flex h-screen flex-col">
+      <Header {...headerProps}>
+        <VisionMission />
+      </Header>
     </div>
   );
 }

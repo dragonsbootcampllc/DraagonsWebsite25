@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { cn } from "~/lib/utils";
-import { SuccessStoryOverview } from "~/types";
+import { type SuccessStoryOverview } from "~/types";
 import { DotPattern } from "../ui";
 import Link from "next/link";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
@@ -19,7 +19,7 @@ export default function ({ id, title, imageSrc, type }: SuccessStoryOverview) {
         />
 
         <Image
-          src={imageSrc || ""}
+          src={imageSrc ?? ""}
           alt={title}
           fill
           className="relative z-0 min-h-full min-w-full object-cover transition-all duration-300 group-hover/success-story-card:scale-105"

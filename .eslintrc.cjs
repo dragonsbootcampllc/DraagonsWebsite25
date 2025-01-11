@@ -36,7 +36,10 @@ const config = {
           "attributes": false
         }
       }
-    ]
+    ],
+    "import/no-anonymous-default-export": "off",
+    "react/display-name": "off",
+    "react-hooks/exhaustive-deps": "off"
   }
 }
 module.exports = config;

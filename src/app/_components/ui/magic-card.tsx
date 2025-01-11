@@ -19,7 +19,7 @@ export default function ({
   className,
   wrapperClassName,
   gradientSize = 200,
-  gradientColor = "#262626",
+  gradientColor = "#7d68f530",
   gradientOpacity = 0.8,
   gradientFrom = "#9E7AFF",
   gradientTo = "#FE8BBB",
@@ -40,7 +40,7 @@ export default function ({
     },
     [mouseX, mouseY],
   );
-  +9;
+
   const handleMouseOut = useCallback(
     (e: MouseEvent) => {
       if (!e.relatedTarget) {
@@ -80,7 +80,7 @@ export default function ({
       ref={cardRef}
       className={cn("group relative flex size-full rounded-xl", className)}
     >
-      <div className="absolute inset-px z-10 rounded-xl bg-primary-900" />
+      <div className="absolute inset-px z-10 rounded-xl bg-gradient-to-tr from-primary-950 via-primary-900 to-primary-850" />
       <div className={cn("relative z-30", wrapperClassName)}>{children}</div>
       <motion.div
         className="pointer-events-none absolute inset-px z-10 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"

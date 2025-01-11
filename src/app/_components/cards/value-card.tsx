@@ -22,7 +22,7 @@ export default function ({
 }: ValueCardProps) {
   return (
     <Link
-      href={link || "#"}
+      href={link ?? "#"}
       className={cn(
         "relative flex min-h-[500px] cursor-pointer select-none flex-col gap-5 overflow-hidden rounded-2xl bg-[#181619] p-5 text-center shadow-[0_0_50px_10px_theme(colors.primary.800/50)] transition-all duration-300 hover:scale-[1.02]",
         overlayStyle,

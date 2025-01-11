@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useEffect, useId, useState } from "react";
@@ -13,15 +12,38 @@ interface SparklesProps {
   speed?: number;
   minSpeed?: number | null;
   opacity?: number;
-  direction?: string;
+  direction?:
+    | MoveDirection
+    | keyof typeof MoveDirection
+    | MoveDirectionAlt
+    | number;
   opacitySpeed?: number;
   minOpacity?: number | null;
   color?: string;
   mousemove?: boolean;
   hover?: boolean;
   background?: string;
-  options?: Record<string, any>; // Adjust type as needed based on `options` structure
+  options?: Record<string, unknown>; // Adjust type as needed based on `options` structure
 }
+
+declare enum MoveDirection {
+  bottom = "bottom",
+  bottomLeft = "bottom-left",
+  bottomRight = "bottom-right",
+  left = "left",
+  none = "none",
+  right = "right",
+  top = "top",
+  topLeft = "top-left",
+  topRight = "top-right",
+  outside = "outside",
+  inside = "inside",
+}
+type MoveDirectionAlt =
+  | "bottom-left"
+  | "bottom-right"
+  | "top-left"
+  | "top-right";
 
 export default function ({
   className,
@@ -31,7 +53,7 @@ export default function ({
   speed = 1.5,
   minSpeed = null,
   opacity = 1,
-  direction = "",
+  direction = "bottom",
   opacitySpeed = 3,
   minOpacity = null,
   color = "#ffffff",
@@ -45,13 +67,18 @@ export default function ({
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
-    }).then(() => {
-      setIsReady(true);
-    });
+    })
+      .then(() => {
+        setIsReady(true);
+      })
+      .catch((error) => {
+        console.error("Error initializing particles engine:", error);
+      });
   }, []);
 
   const id = useId();
   const defaultOptions = {
+    autoPlay: true,
     background: {
       color: {
         value: background,
@@ -78,7 +105,10 @@ export default function ({
             smooth: 10,
           },
         },
-        resize: true as any,
+        resize: {
+          delay: 0,
+          enable: true,
+        },
       },
       modes: {
         push: {
@@ -98,7 +128,7 @@ export default function ({
         enable: true,
         direction,
         speed: {
-          min: minSpeed || speed / 130,
+          min: minSpeed ?? speed / 130,
           max: speed,
         },
         straight: true,
@@ -117,7 +147,7 @@ export default function ({
         },
         enable: false,
         maxSpeed: 50,
-        mode: "bounce",
+        mode: "bounce" as const,
         overlap: {
           enable: true,
           retries: 0,
@@ -128,7 +158,7 @@ export default function ({
       },
       opacity: {
         value: {
-          min: minOpacity || opacity / 10,
+          min: minOpacity ?? opacity / 10,
           max: opacity,
         },
         animation: {
@@ -139,13 +169,15 @@ export default function ({
       },
       size: {
         value: {
-          min: minSize || size / 1.5,
+          min: minSize ?? size / 1.5,
           max: size,
         },
       },
     },
     detectRetina: true,
+    ...options,
   };
+
   return (
     isReady && (
       <Particles id={id} options={defaultOptions} className={className} />

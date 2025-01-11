@@ -20,7 +20,7 @@ export default function ({
 }: ValueCard2Props) {
   return (
     <Link
-      href={link || "#"}
+      href={link ?? "#"}
       className={cn(
         "group relative flex min-h-[500px] cursor-pointer select-none flex-col gap-5 overflow-hidden rounded-2xl border bg-[#181619] bg-opacity-55 bg-gradient-to-t from-primary-800 to-primary-900 p-5 shadow-[0_0_50px_10px_theme(colors.primary.850/50)] backdrop-blur-sm transition-all duration-300 hover:scale-[1.02]",
       )}
@@ -30,6 +30,7 @@ export default function ({
       <div className="absolute inset-0 z-0 opacity-5">
         <Image
           src="/images/noise.gif"
+          unoptimized
           width={350}
           height={240}
           alt="Card image 01"
@@ -61,7 +62,11 @@ export default function ({
           <Image
             className="absolute left-0 top-0 m-0 h-full object-cover p-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             src={
-              image ? (Array.isArray(image) ? image[1] || image[0] : image) : ""
+              image
+                ? Array.isArray(image)
+                  ? (image[1] ?? image[0])
+                  : image
+                : ""
             }
             width={350}
             height={240}

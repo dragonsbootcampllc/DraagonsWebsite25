@@ -1,43 +1,15 @@
-import Image from "next/image";
 import { Title } from "../typography";
-import { DotPattern, MagicCard } from "../ui";
 import { IconJarLogoIcon } from "@radix-ui/react-icons";
-import { cn } from "~/lib/utils";
-
-interface IndustryCardProps {
-  icon: React.ReactNode;
-  name: string;
-  description: string;
-}
-
-const IndustryCard = ({ icon, name, description }: IndustryCardProps) => {
-  return (
-    <MagicCard className="min-h-56 cursor-pointer transition-all hover:scale-[1.02] overflow-hidden group/industry-card">
-      <div className="flex size-full flex-col items-start p-6 justify-center gap-6">
-        <div className="flex items-center gap-2 text-4xl">
-          {icon}
-          <h3 className="">{name}</h3>
-        </div>
-
-        <p className="text-xl text-primary-100/80">{description}</p>
-      </div>
-      <DotPattern
-        className={cn(
-          "[mask-image:radial-gradient(250px_circle_at_top_right,white,transparent)] translate-x-12 -translate-y-12 group-hover/industry-card:translate-x-8 group-hover/industry-card:-translate-y-8 transition-all",
-        )}
-      />
-    </MagicCard>
-  );
-};
+import { Card } from "../cards";
 
 export default function () {
   const title = "Industries Where We Shine";
   const industries = [
     {
-      icon: <IconJarLogoIcon className="size-7" />,
+      icon: <IconJarLogoIcon className="size-full" />,
       name: "eCommerce & Retail",
       description:
-        "Driving digital transformation and e-commerce platform optimization, while enhancing customer experiences with gamification and loyalty systems. Our outsourcing expertise boosts growth and efficiency for eCommerce businesses.",
+        "Optimizing eCommerce platforms and customer experiences through digital transformation, gamification, loyalty programs, and outsourcing to drive growth and efficiency.",
     },
     {
       icon: <IconJarLogoIcon className="size-7" />,
@@ -63,9 +35,9 @@ export default function () {
     <div className="w-full px-2 py-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center">
         <Title>{title}</Title>
-        <div className="mx-auto grid h-full w-full max-w-7xl grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mx-auto grid h-full w-full max-w-7xl grid-cols-1 gap-6 md:grid-cols-4">
           {industries.map((industry, index) => (
-            <IndustryCard key={index} {...industry} />
+            <Card key={index} {...industry} />
           ))}
         </div>
       </div>

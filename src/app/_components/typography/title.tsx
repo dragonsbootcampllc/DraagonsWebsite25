@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { renderTextArray, Props } from "./util";
+import { renderTextArray, type Props } from "./util";
 import { cn } from "~/lib/utils";
 
 export default function ({ children, className }: Props) {
@@ -11,7 +11,7 @@ export default function ({ children, className }: Props) {
         className,
       )}
     >
-      {renderTextArray(children || "")}
+      {renderTextArray(children ?? "")}
     </h1>
   );
 }
