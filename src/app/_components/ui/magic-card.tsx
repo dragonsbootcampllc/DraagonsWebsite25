@@ -81,7 +81,9 @@ export default function ({
       className={cn("group relative flex size-full rounded-xl", className)}
     >
       <div className="absolute inset-px z-10 rounded-xl bg-gradient-to-tr from-primary-950 via-primary-900 to-primary-850" />
-      <div className={cn("relative z-30", wrapperClassName)}>{children}</div>
+      <div className={cn("relative z-30 size-full", wrapperClassName)}>
+        {children}
+      </div>
       <motion.div
         className="pointer-events-none absolute inset-px z-10 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{

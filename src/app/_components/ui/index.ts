@@ -12,6 +12,7 @@ export { default as Marquee } from "./marquee";
 export { default as DotPattern } from "./dot-pattern";
 export { default as Ripple } from "./ripple";
 export { default as MagicCard } from "./magic-card";
+export { default as AnimatedBeam } from "./animated-beam";
 
 // Export Types
 export type { BentoCardProps } from "./bento-grid";

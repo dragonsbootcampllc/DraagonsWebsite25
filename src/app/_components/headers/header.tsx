@@ -13,6 +13,7 @@ type HeaderProps = {
   primaryButton?: Omit<ButtonProps, "variant">;
   secondaryButton?: Omit<ButtonProps, "variant">;
   children?: React.ReactNode;
+  wrapperclassName?: string;
 };
 
 export default function ({
@@ -22,6 +23,7 @@ export default function ({
   primaryButton,
   secondaryButton,
   children,
+  wrapperclassName,
 }: HeaderProps) {
   return (
     <div className="box-border flex min-h-screen w-full flex-col items-center justify-start p-20">
@@ -68,7 +70,12 @@ export default function ({
 
       {/* Children */}
       {children && (
-        <div className="flex w-full max-w-7xl translate-y-1/2 flex-col items-center justify-center">
+        <div
+          className={cn(
+            "flex w-full max-w-7xl translate-y-1/2 flex-col items-center justify-center",
+            wrapperclassName,
+          )}
+        >
           <div className="z-10 h-full w-full">{children}</div>
           <div className="absolute left-1/2 top-1/2 z-0 h-full w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-t from-transparent from-10% to-primary-650/50 blur-3xl"></div>
         </div>

@@ -23,7 +23,7 @@ export default function ({
           type={type}
           disabled={disabled}
           onClick={onClick}
-          className={cn(className)}
+          className={className}
         >
           {children}
         </ShinyButton>

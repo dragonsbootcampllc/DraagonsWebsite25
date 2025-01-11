@@ -10,7 +10,7 @@ import { Particles } from "./_components/ui";
 export const metadata: Metadata = {
   title: "Dragons",
   description: "Dragons",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/images/identity/D_Logo.svg" }],
 };
 
 export default function RootLayout({
