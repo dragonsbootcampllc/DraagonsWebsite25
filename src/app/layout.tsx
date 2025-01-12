@@ -6,6 +6,7 @@ import { type Metadata } from "next";
 import { TRPCReactProvider } from "~/trpc/react";
 import { Navbar } from "./_components/layout";
 import { Particles } from "./_components/ui";
+import Footer from "./_components/footers/footer";
 
 export const metadata: Metadata = {
   title: "Dragons",
@@ -30,6 +31,8 @@ export default function RootLayout({
           refresh
         />
       </body>
+      <Footer/>
+
     </html>
   );
 }
