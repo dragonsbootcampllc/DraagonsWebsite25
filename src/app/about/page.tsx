@@ -1,6 +1,8 @@
 import React from "react";
 import { Header } from "../_components/headers";
 import { VisionMission } from "../_components/about";
+import StorySection from "src/app/about/storysection.tsx";
+
 
 export default function () {
   const headerProps = {
@@ -11,8 +13,9 @@ export default function () {
   return (
     <div className="flex h-screen flex-col">
       <Header {...headerProps}>
-        <VisionMission />
+        <VisionMission /> 
       </Header>
+      <StorySection />
     </div>
   );
 }

@@ -31,7 +31,7 @@ export default function RootLayout({
           refresh
         />
       </body>
-      <Footer/>
+    
 
     </html>
   );
