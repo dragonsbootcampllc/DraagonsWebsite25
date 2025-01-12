@@ -3,7 +3,9 @@ import React from "react";
 export default function () {
   return (
     <div className="mx-auto max-w-4xl px-6 py-20">
-      <h1 className="mb-6 text-4xl max-md:text-3xl font-bold">Terms and Conditions</h1>
+      <h1 className="mb-6 text-4xl font-bold max-md:text-3xl">
+        Terms and Conditions
+      </h1>
 
       <section className="mb-8">
         <h2 className="mb-4 text-2xl font-semibold">1. Introduction</h2>
