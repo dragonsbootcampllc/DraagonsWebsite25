@@ -13,6 +13,11 @@ const config = {
         hostname: "placehold.co",
         pathname: "/*",
       },
+      {
+        protocol: "https",
+        hostname: "i.ibb.co",
+        pathname: "/DR7GL9p/*",
+      },
     ],
   },
 };
