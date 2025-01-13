@@ -26,7 +26,7 @@ export default function ({
   wrapperclassName,
 }: HeaderProps) {
   return (
-    <div className="box-border flex min-h-screen w-full flex-col items-center justify-start p-20">
+    <div className="box-border flex min-h-screen w-full flex-col items-center justify-start px-6 py-20 md:p-20">
       <div className="flex max-w-7xl flex-col items-center justify-start gap-6">
         {/* Sub Title */}
         {subtitle && (
@@ -54,13 +54,13 @@ export default function ({
             {primaryButton && (
               <Button
                 {...primaryButton}
-                className={cn("text-xl", primaryButton.className)}
+                className={cn("px-6", primaryButton.className)}
               />
             )}
             {secondaryButton && (
               <Button
                 {...secondaryButton}
-                className={cn("text-xl", secondaryButton.className)}
+                className={cn("px-2 ", secondaryButton.className)}
                 variant={ButtonVariant.Secondary}
               />
             )}
