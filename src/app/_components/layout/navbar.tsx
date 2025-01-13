@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
+import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui";
 import { cn } from "../../../lib/utils";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -9,41 +9,40 @@ import Link from "next/link";
 import { Button } from "../buttons/index";
 import { ButtonVariant } from "~/types/props";
 
-const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  {
-    label: "Services",
-    href: "/services",
-    submenu: [
-      {
-        title: "Data-Driven Talent Selection",
-        href: "/services/data-driven-talent-selection",
-        src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
-        description: "Prepare for tech interviews like never before.",
-      },
-      {
-        title: "n-Demand Technical Leadership",
-        href: "/services/on-demand-technical-leadership",
-        src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
-        description:
-          "Production ready Tailwind css components for your next project",
-      },
-      {
-        title: "Outsourcing",
-        href: "/services/outsourcing",
-        src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
-        description:
-          "Never write from scratch again. Go from idea to blog in minutes.",
-      },
-    ],
-  },
-  { label: "About", href: "/about" },
-];
-
 export default function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const [isDesktop, setIsDesktop] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const NAV_LINKS = [
+    { label: "Home", href: "/" },
+    {
+      label: "Services",
+      href: "/services",
+      submenu: [
+        {
+          title: "Data-Driven Talent Selection",
+          href: "/services/data-driven-talent-selection",
+          src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
+          description: "Prepare for tech interviews like never before.",
+        },
+        {
+          title: "n-Demand Technical Leadership",
+          href: "/services/on-demand-technical-leadership",
+          src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
+          description:
+            "Production ready Tailwind css components for your next project",
+        },
+        {
+          title: "Outsourcing",
+          href: "/services/outsourcing",
+          src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
+          description:
+            "Never write from scratch again. Go from idea to blog in minutes.",
+        },
+      ],
+    },
+    { label: "About", href: "/about" },
+  ];
 
   const checkScreenWidth = () => {
     setIsDesktop(window.innerWidth >= 768);
@@ -58,7 +57,7 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "fixed inset-x-0 top-2 z-50 mx-auto max-w-7xl max-md:top-0",
+        "fixed inset-x-0 top-2 z-50 mx-auto max-w-[1500px] max-md:top-0",
         className,
       )}
     >
@@ -73,8 +72,9 @@ export default function Navbar({ className }: { className?: string }) {
             />
           </Link>
         </div>
+
         {isDesktop ? (
-          <div className="flex items-center space-x-10">
+          <div className="flex items-center space-x-10 justify-self-center">
             {NAV_LINKS.map((link) =>
               link.submenu ? (
                 <MenuItem
@@ -107,17 +107,18 @@ export default function Navbar({ className }: { className?: string }) {
             )}
           </div>
         ) : null}
+
         {isDesktop ? (
-          <div className="flex items-center justify-center space-x-4">
-            <Button href="/contact" className="py-2 px-4">
-              Book a Demo
-            </Button>
+          <div className="flex items-center justify-center space-x-4 justify-self-end">
             <Button
               href="/signup"
-              className="py-1 px-6"
+              className="px-6 py-1"
               variant={ButtonVariant.Secondary}
             >
               Sign Up
+            </Button>
+            <Button href="/contact" className="px-4 py-2">
+              Book a Demo
             </Button>
           </div>
         ) : (
@@ -129,13 +130,14 @@ export default function Navbar({ className }: { className?: string }) {
           </button>
         )}
       </Menu>
+
       {menuOpen && (
         <motion.div
           initial={{ opacity: 0, x: "-100%" }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: "-100%" }}
           transition={{ duration: 0.3 }}
-          className="fixed left-0 top-0 z-50 h-full w-3/4 p-4 shadow-xl dark:bg-primary-850 md:hidden"
+          className="fixed left-0 top-0 z-50 h-full w-3/4 bg-primary-900 p-4 shadow-xl md:hidden"
         >
           <nav className="flex flex-col space-y-4">
             {NAV_LINKS.map((link) => (
