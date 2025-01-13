@@ -1,10 +1,6 @@
 import { z } from "zod";
 
-import {
-  createTRPCRouter,
-  protectedProcedure,
-  publicProcedure,
-} from "~/server/api/trpc";
+import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const blogRouter = createTRPCRouter({
   getMany: publicProcedure
@@ -61,7 +57,7 @@ export const blogRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const { id } = input;
 
-      let blog = await ctx.db.blog.findUnique({
+      const blog = await ctx.db.blog.findUnique({
         where: {
           id,
           status: "published",

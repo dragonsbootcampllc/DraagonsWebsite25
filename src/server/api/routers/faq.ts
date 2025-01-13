@@ -1,10 +1,6 @@
 import { z } from "zod";
 
-import {
-  createTRPCRouter,
-  protectedProcedure,
-  publicProcedure,
-} from "~/server/api/trpc";
+import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const faqRouter = createTRPCRouter({
   getMany: publicProcedure
@@ -58,7 +54,7 @@ export const faqRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const { id } = input;
 
-      let faq = await ctx.db.fAQ.findUnique({
+      const faq = await ctx.db.fAQ.findUnique({
         where: {
           id,
         },
