@@ -43,10 +43,6 @@ const NAV_LINKS = [
     ],
   },
   { label: "About", href: "/about" },
-  {
-    label: "lol",
-    href: "/lol",
-  },
 ];
 
 export default function Navbar({ className }: { className?: string }) {
@@ -118,8 +114,8 @@ export default function Navbar({ className }: { className?: string }) {
         ) : null}
         {isDesktop ? (
           <div className="flex items-center justify-center space-x-4">
-            <HoveredLink href="/login">Login</HoveredLink>
-            <HoveredLink href="/contact">contact</HoveredLink>
+            <HoveredLink href="/login">Book a Demo</HoveredLink>
+            <HoveredLink href="/contact">Sign Up</HoveredLink>
           </div>
         ) : (
           <button
