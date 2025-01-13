@@ -1,10 +1,13 @@
 import { z } from "zod";
+import { Analytics } from '@customerio/cdp-analytics-node'
 
 import {
   createTRPCRouter,
   protectedProcedure,
   publicProcedure,
 } from "~/server/api/trpc";
+import axios, { all } from "axios";
+
 
 export const postRouter = createTRPCRouter({
   hello: publicProcedure
@@ -16,14 +19,16 @@ export const postRouter = createTRPCRouter({
     }),
 
   create: protectedProcedure
-    .input(z.object({ name: z.string().min(1) }))
+    // .input(z.object({ name: z.string().min(1) }))
     .mutation(async ({ ctx, input }) => {
-      return ctx.db.post.create({
-        data: {
-          name: input.name,
-          createdBy: { connect: { id: ctx.session.user.id } },
-        },
-      });
+      const result = await axios.get("https://jsonplaceholder.typicode.com/todos/1");
+      return JSON.stringify(result.data);
+      // return ctx.db.post.create({
+      //   data: {
+      //     name: input.name,
+      //     createdBy: { connect: { id: ctx.session.user.id } },
+      //   },
+      // });
     }),
 
   getLatest: protectedProcedure.query(async ({ ctx }) => {
@@ -35,7 +40,43 @@ export const postRouter = createTRPCRouter({
     return post ?? null;
   }),
 
-  getSecretMessage: protectedProcedure.query(() => {
-    return "you can now see this secret message!";
+  getSecretMessage: publicProcedure
+  .input(z.object({ name: z.string().min(1) }))
+  .query( async ({ input }) => {
+    // const result = await axios.get("https://jsonplaceholder.typicode.com/todos/1");
+      return JSON.stringify({ hello: `Hello ${input.name}` });
   }),
+  addNewPerson: publicProcedure
+  .input(z.object({ email: z.string().min(1) }))
+  .query( async ({ input }) => {
+    // const result = await axios.get("https://jsonplaceholder.typicode.com/todos/1");
+      console.log(input.email);
+      addNewPerson(input.email);
+      return;
+  }),
+
 });
+
+
+function addNewPerson(email: string) {
+  const analytics = new Analytics({
+    writeKey: "8ef561c1060f78192e3f",
+  });
+
+  analytics.identify({
+    userId:email,
+    traits: {
+      from: "cal",
+      email,
+    },
+    integrations: {
+      All: true
+    },
+  }, function(err: any, res: any) {
+    if (err) {
+      console.log("err",err);
+    } else {
+      console.log("res",res);
+    }
+  });
+}

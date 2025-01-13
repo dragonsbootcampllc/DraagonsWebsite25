@@ -6,6 +6,8 @@ import { type Metadata } from "next";
 import { TRPCReactProvider } from "~/trpc/react";
 import { Navbar } from "./_components/layout";
 import { Particles } from "./_components/ui";
+import GoogleAnalytics from "./_components/GoogleAnalysis";
+import CookieBanner from "./_components/GoogleAnalysis/CookieBanner";
 
 export const metadata: Metadata = {
   title: "Dragons",
@@ -18,6 +20,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
+      <GoogleAnalytics GA_MEASUREMENT_ID="G-7TQJ6QKQ5T" />
       <body className="dark box-border w-dvw overflow-hidden overflow-y-auto bg-primary-900 pt-12">
         <Navbar />
         <TRPCReactProvider>{children}</TRPCReactProvider>
@@ -29,6 +32,7 @@ export default function RootLayout({
           color="#ffffff"
           refresh
         />
+        <CookieBanner />
       </body>
     </html>
   );
