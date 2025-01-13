@@ -47,7 +47,7 @@ export default function () {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full p-4">
       <div className="z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-6 p-20 px-2">
         <h3 className="text-balance text-center text-sm font-medium leading-none text-primary-100 sm:text-base md:text-lg lg:text-xl">
           {subtitle}

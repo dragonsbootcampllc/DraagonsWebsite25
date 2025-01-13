@@ -14,11 +14,11 @@ export default function () {
         className="relative m-auto size-full max-w-7xl overflow-hidden"
       >
         <div className="flex size-full flex-col items-center justify-center gap-8 py-8 text-center">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col px-2 gap-2">
             <h3 className="font-regular max-w-xl text-3xl tracking-tighter md:text-5xl">
               Try our platform today!
             </h3>
-            <p className="max-w-xl text-lg leading-relaxed tracking-tight text-muted-foreground">
+            <p className="max-w-xl text-lg leading-relaxed tracking-tight text-muted-foreground px-2">
               Managing a small business today is already tough. Avoid further
               complications by ditching outdated, tedious trade methods. Our
               goal is to streamline SMB trade, making it easier and faster than
@@ -26,14 +26,14 @@ export default function () {
             </p>
           </div>
 
-          <div className="flex flex-row gap-4">
-            <Button>
+          <div className="flex flex-row max-md:flex-col gap-4 max-md:w-full max-md:px-6">
+            <Button className="max-md:w-full">
               <div className="flex items-center justify-center gap-2">
                 <span>Jump on a call</span> <PhoneCall className="size-4" />
               </div>
             </Button>
             <Button
-              className="flex items-center justify-center gap-2"
+              className="flex items-center justify-center gap-2 max-md:w-full"
               variant={ButtonVariant.Secondary}
             >
               <span>Sign up here</span> <MoveRight className="size-4" />

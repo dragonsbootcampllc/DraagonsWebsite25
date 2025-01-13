@@ -94,7 +94,7 @@ export default function () {
     },
   ];
   return (
-    <div className="relative w-full">
+    <div className="relative w-full p-4">
       <div className="m-auto w-full max-w-7xl p-20 px-2">
         <Title>{title}</Title>
         <BentoGrid className="w-full">
