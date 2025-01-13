@@ -1,169 +1,170 @@
 "use client";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { cn } from "~/lib/utils";
-import { Button } from "../buttons";
-import { usePathname } from "next/navigation";
-import { ButtonVariant } from "~/types/props";
-import { AnimatedShinyText } from "../ui";
+import { useState, useEffect } from "react";
+import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
+import { cn } from "../../../lib/utils";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { IoMenu, IoClose } from "react-icons/io5";
+import Link from "next/link";
 
-const Logo = () => {
-  return (
-    <div className="inline-flex h-full items-center justify-center text-balance bg-gradient-to-br from-primary-600/70 from-30% to-primary-500/40 bg-clip-text text-center text-3xl font-medium leading-none tracking-tighter text-transparent">
-      <Image
-        src="/images/identity/Full_Logo.png"
-        alt="logo"
-        width={150}
-        height={100}
-      />
-    </div>
-  );
-};
+const NAV_LINKS = [
+  { label: "Home", href: "/" },
+  {
+    label: "Products",
+    href: "/products",
+    submenu: [
+      {
+        title: "Algochurn",
+        href: "https://algochurn.com",
+        src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
+        description: "Prepare for tech interviews like never before.",
+      },
+      {
+        title: "Tailwind Master Kit",
+        href: "https://tailwindmasterkit.com",
+        src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
+        description:
+          "Production ready Tailwind css components for your next project",
+      },
+      {
+        title: "Moonbeam",
+        href: "https://gomoonbeam.com",
+        src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
+        description:
+          "Never write from scratch again. Go from idea to blog in minutes.",
+      },
+      {
+        title: "Rogue",
+        href: "https://userogue.com",
+        src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
+        description:
+          "Respond to government RFPs, RFIs and RFQs 10x faster using AI",
+      },
+    ],
+  },
+  { label: "About", href: "/about" },
+  {
+    label: "lol",
+    href: "/lol",
+  },
+];
 
-type Link = {
-  label: string;
-  href: string;
-};
+export default function Navbar({ className }: { className?: string }) {
+  const [active, setActive] = useState<string | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-type NestedLink = {
-  label: string;
-  isNested: boolean;
-  href?: string;
-  relativeLinks?: Link[];
-  active?: boolean;
-};
-
-const renderLinks = (links: NestedLink[] | Link[]) => {
-  return links.map((link, index) => {
-    return (link as NestedLink).relativeLinks ? (
-      <div
-        key={index}
-        className="group flex size-full items-center justify-center"
-      >
-        <Link href={link.href!}>{link.label}</Link>
-
-        <div
-          className="absolute left-1/2 top-full -z-10 flex -translate-x-1/2 -translate-y-full flex-col items-start justify-start gap-3 rounded-lg bg-primary-850 p-3 opacity-0 transition-all delay-75 duration-300 group-hover:z-10 group-hover:translate-y-5 group-hover:opacity-100"
-          key={index}
-        >
-          {renderLinks((link as NestedLink).relativeLinks!)}
-        </div>
-        <span
-          className={cn(
-            "absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-white transition-all",
-            (link as NestedLink).active
-              ? "w-full group-hover:w-4/5"
-              : "w-0 group-hover:w-1",
-          )}
-        />
-      </div>
-    ) : (
-      <div
-        key={index}
-        className="group relative flex h-full items-center justify-center"
-      >
-        <Link
-          href={link.href!}
-          className={cn(
-            "inline-flex h-full items-center justify-center px-3 font-medium transition-all duration-300 active:scale-95",
-            !("active" in link) && "items-start justify-start text-start",
-          )}
-        >
-          {link.label}
-        </Link>
-        {"active" in link && (
-          <span
-            className={cn(
-              "absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-white transition-all",
-              link.active ? "w-full group-hover:w-4/5" : "w-0 group-hover:w-1",
-            )}
-          />
-        )}
-      </div>
-    );
-  });
-};
-
-export default function () {
-  const currentPath = usePathname();
-  const [counter, setCounter] = useState(0);
-  const [links, setLinks] = useState<NestedLink[]>([
-    {
-      label: "Home",
-      href: "/",
-      isNested: false,
-      active: true,
-    },
-    {
-      label: "Services",
-      href: "/services",
-      isNested: true,
-      relativeLinks: [
-        {
-          label: "Data-Driven Talent Selection",
-          href: "/services/data-driven-talent-selection",
-        },
-        {
-          label: "On-Demand Technical Leadership",
-          href: "/services/on-demand-technical-leadership",
-        },
-        {
-          label: "Outsourcing",
-          href: "/services/outsourcing",
-        },
-      ],
-    },
-    {
-      label: "About",
-      href: "/about",
-      isNested: false,
-    },
-  ]);
-
-  const setCurrentActiveLink = () => {
-    setLinks(
-      links.map((link) => {
-        console.log(counter);
-        setCounter(counter + 1);
-
-        link.active =
-          link.href?.includes(currentPath + "/") ?? currentPath === link.href;
-        return link;
-      }),
-    );
+  const checkScreenWidth = () => {
+    setIsDesktop(window.innerWidth >= 768);
   };
 
   useEffect(() => {
-    setCurrentActiveLink();
-  }, [currentPath]);
+    checkScreenWidth();
+    window.addEventListener("resize", checkScreenWidth);
+    return () => window.removeEventListener("resize", checkScreenWidth);
+  }, []);
 
   return (
-    <div className="fixed left-0 top-0 z-[99999] h-16 w-full border-b-2 border-primary-800/80 bg-primary-950/20 backdrop-blur-lg">
-      <div className="mx-auto grid h-full w-full max-w-7xl grid-cols-3 items-center justify-items-start">
-        <div className="flex gap-4">
-          <Logo />
-          <div
-            className={cn(
-              "group rounded-full border border-white/5 bg-primary-800 text-base font-semibold text-white transition-all ease-in hover:cursor-pointer hover:bg-primary-750",
+    <div
+      className={cn(
+        "fixed inset-x-0 top-2 z-50 mx-auto max-w-7xl max-md:top-0",
+        className,
+      )}
+    >
+      <Menu setActive={setActive}>
+        <div className="flex cursor-pointer items-center">
+          <Link href="/">
+            <Image
+              src="/images/identity/Full_Logo.png"
+              width={120}
+              height={40}
+              alt="logo"
+            />
+          </Link>
+        </div>
+        {isDesktop ? (
+          <div className="flex items-center space-x-10">
+            {NAV_LINKS.map((link) =>
+              link.submenu ? (
+                <MenuItem
+                  key={link.label}
+                  setActive={setActive}
+                  active={active}
+                  item={link.label}
+                >
+                  <div className="grid grid-cols-2 gap-10 p-4 text-sm max-md:grid-cols-1">
+                    {link.submenu.map((item) => (
+                      <ProductItem
+                        key={item.title}
+                        title={item.title}
+                        href={item.href}
+                        src={item.src}
+                        description={item.description}
+                      />
+                    ))}
+                  </div>
+                </MenuItem>
+              ) : (
+                <HoveredLink
+                  key={link.label}
+                  href={link.href}
+                  className="text-2xl font-bold"
+                >
+                  {link.label}
+                </HoveredLink>
+              ),
             )}
-          >
-            <AnimatedShinyText className="inline-flex h-full w-full items-center justify-center px-4 transition ease-out group-hover:text-primary-150 group-hover:duration-300">
-              <span>Alpha</span>
-            </AnimatedShinyText>
           </div>
-        </div>
-        <div className="flex h-full items-center gap-6 justify-self-center">
-          {renderLinks(links)}
-        </div>
-
-        <div className="flex h-full items-center gap-3 justify-self-end">
-          <Button className="px-4 py-2">book a demo</Button>
-          <Button variant={ButtonVariant.Secondary} className="px-4 py-2">
-            Sign up
-          </Button>
-        </div>
-      </div>
+        ) : null}
+        {isDesktop ? (
+          <div className="flex items-center justify-center space-x-4">
+            <HoveredLink href="/login">Login</HoveredLink>
+            <HoveredLink href="/contact">contact</HoveredLink>
+          </div>
+        ) : (
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2 text-white focus:outline-none md:hidden"
+          >
+            {menuOpen ? <IoClose size={28} /> : <IoMenu size={28} />}
+          </button>
+        )}
+      </Menu>
+      {menuOpen && (
+        <motion.div
+          initial={{ opacity: 0, x: "-100%" }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: "-100%" }}
+          transition={{ duration: 0.3 }}
+          className="fixed left-0 top-0 z-50 h-full w-3/4 p-4 shadow-xl dark:bg-primary-850 md:hidden"
+        >
+          <nav className="flex flex-col space-y-4">
+            {NAV_LINKS.map((link) => (
+              <div key={link.label} className="flex flex-col space-y-2">
+                <HoveredLink
+                  href={link.href}
+                  className="text-lg text-black dark:text-white"
+                >
+                  {link.label}
+                </HoveredLink>
+                {link.submenu && (
+                  <div className="flex flex-col space-y-1 pl-4">
+                    {link.submenu.map((item) => (
+                      <HoveredLink
+                        key={item.title}
+                        href={item.href}
+                        className="text-neutral-700 dark:text-neutral-300"
+                      >
+                        {item.title}
+                      </HoveredLink>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+        </motion.div>
+      )}
     </div>
   );
 }
