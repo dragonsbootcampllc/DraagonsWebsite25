@@ -1,5 +1,5 @@
 import { Header } from "../_components/headers";
-import { HeaderCards } from "../_components/services";
+import { HeaderCards, OrbitingCirclesSection } from "../_components/services";
 
 export default function () {
   const headerProps = {
@@ -9,9 +9,13 @@ export default function () {
   };
   return (
     <div>
-      <Header wrapperclassName="translate-y-1/4" {...headerProps}>
+      {/* <Header wrapperclassName="translate-y-1/4" {...headerProps}>
         <HeaderCards />
-      </Header>
+      </Header> */}
+
+      <div className="flex h-screen w-full items-center justify-center">
+        <OrbitingCirclesSection />
+      </div>
     </div>
   );
 }

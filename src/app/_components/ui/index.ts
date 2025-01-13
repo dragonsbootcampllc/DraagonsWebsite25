@@ -13,6 +13,6 @@ export { default as DotPattern } from "./dot-pattern";
 export { default as Ripple } from "./ripple";
 export { default as MagicCard } from "./magic-card";
 export { default as AnimatedBeam } from "./animated-beam";
-
+export { default as OrbitingCircles } from "./orbiting-circles";
 // Export Types
 export type { BentoCardProps } from "./bento-grid";
