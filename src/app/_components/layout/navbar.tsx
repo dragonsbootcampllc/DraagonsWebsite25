@@ -6,39 +6,34 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { IoMenu, IoClose } from "react-icons/io5";
 import Link from "next/link";
+import { Button } from "../buttons/index";
+import { ButtonVariant } from "~/types/props";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   {
-    label: "Products",
-    href: "/products",
+    label: "Services",
+    href: "/services",
     submenu: [
       {
-        title: "Algochurn",
-        href: "https://algochurn.com",
+        title: "Data-Driven Talent Selection",
+        href: "/services/data-driven-talent-selection",
         src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
         description: "Prepare for tech interviews like never before.",
       },
       {
-        title: "Tailwind Master Kit",
-        href: "https://tailwindmasterkit.com",
+        title: "n-Demand Technical Leadership",
+        href: "/services/on-demand-technical-leadership",
         src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
         description:
           "Production ready Tailwind css components for your next project",
       },
       {
-        title: "Moonbeam",
-        href: "https://gomoonbeam.com",
+        title: "Outsourcing",
+        href: "/services/outsourcing",
         src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
         description:
           "Never write from scratch again. Go from idea to blog in minutes.",
-      },
-      {
-        title: "Rogue",
-        href: "https://userogue.com",
-        src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
-        description:
-          "Respond to government RFPs, RFIs and RFQs 10x faster using AI",
       },
     ],
   },
@@ -114,8 +109,16 @@ export default function Navbar({ className }: { className?: string }) {
         ) : null}
         {isDesktop ? (
           <div className="flex items-center justify-center space-x-4">
-            <HoveredLink href="/login">Book a Demo</HoveredLink>
-            <HoveredLink href="/contact">Sign Up</HoveredLink>
+            <Button href="/contact" className="py-2 px-4">
+              Book a Demo
+            </Button>
+            <Button
+              href="/signup"
+              className="py-1 px-6"
+              variant={ButtonVariant.Secondary}
+            >
+              Sign Up
+            </Button>
           </div>
         ) : (
           <button
