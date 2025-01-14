@@ -18,6 +18,8 @@ export const env = createEnv({
       .enum(["development", "test", "production"])
       .default("development"),
     GA_MEASUREMENT_ID: z.string(),
+    CUSTOMER_API_KEY: z.string(),
+    CUSTOMER_SIDE_ID: z.string(),
   },
 
   /**
@@ -40,6 +42,8 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
     GA_MEASUREMENT_ID: process.env.GA_MEASUREMENT_ID,
+    CUSTOMER_API_KEY: process.env.CUSTOMER_API_KEY,
+    CUSTOMER_SIDE_ID: process.env.CUSTOMER_SIDE_ID,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

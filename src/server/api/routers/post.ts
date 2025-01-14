@@ -60,7 +60,7 @@ export const postRouter = createTRPCRouter({
 
 function addNewPerson(email: string) {
   const analytics = new Analytics({
-    writeKey: "8ef561c1060f78192e3f",
+    writeKey: CUSTOMER_SIDE_ID,
   });
 
   analytics.identify({
