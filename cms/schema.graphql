@@ -313,6 +313,10 @@ type Company {
   industriesCount(where: IndustryWhereInput! = {}): Int
   blogs(where: BlogWhereInput! = {}, orderBy: [BlogOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: BlogWhereUniqueInput): [Blog!]
   blogsCount(where: BlogWhereInput! = {}): Int
+  typeOfCollaboration: String
+  duration: String
+  status: String
+  type: String
 }
 
 input CompanyWhereUniqueInput {
@@ -332,6 +336,10 @@ input CompanyWhereInput {
   fund: StringFilter
   industries: IndustryManyRelationFilter
   blogs: BlogManyRelationFilter
+  typeOfCollaboration: StringFilter
+  duration: StringFilter
+  status: StringFilter
+  type: StringFilter
 }
 
 input IndustryManyRelationFilter {
@@ -353,6 +361,10 @@ input CompanyOrderByInput {
   website: OrderDirection
   address: OrderDirection
   fund: OrderDirection
+  typeOfCollaboration: OrderDirection
+  duration: OrderDirection
+  status: OrderDirection
+  type: OrderDirection
 }
 
 input CompanyUpdateInput {
@@ -364,6 +376,10 @@ input CompanyUpdateInput {
   features: JSON
   industries: IndustryRelateToManyForUpdateInput
   blogs: BlogRelateToManyForUpdateInput
+  typeOfCollaboration: String
+  duration: String
+  status: String
+  type: String
 }
 
 input IndustryRelateToManyForUpdateInput {
@@ -394,6 +410,10 @@ input CompanyCreateInput {
   features: JSON
   industries: IndustryRelateToManyForCreateInput
   blogs: BlogRelateToManyForCreateInput
+  typeOfCollaboration: String
+  duration: String
+  status: String
+  type: String
 }
 
 input IndustryRelateToManyForCreateInput {

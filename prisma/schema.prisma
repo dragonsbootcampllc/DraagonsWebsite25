@@ -50,15 +50,19 @@ model FAQ {
 }
 
 model Company {
-  id         String     @id @default(cuid())
-  name       String     @unique @default("")
-  size       String     @default("")
-  website    String     @default("")
-  address    String     @default("")
-  fund       String     @default("")
-  features   Json?      @default("[]")
-  industries Industry[] @relation("Company_industries")
-  blogs      Blog[]     @relation("Blog_company")
+  id                  String     @id @default(cuid())
+  name                String     @unique @default("")
+  size                String     @default("")
+  website             String     @default("")
+  address             String     @default("")
+  fund                String     @default("")
+  features            Json?      @default("[]")
+  industries          Industry[] @relation("Company_industries")
+  blogs               Blog[]     @relation("Blog_company")
+  typeOfCollaboration String     @default("")
+  duration            String     @default("")
+  status              String     @default("")
+  type                String     @default("")
 }
 
 model Industry {

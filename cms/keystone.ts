@@ -19,11 +19,11 @@ import { withAuth, session } from "./auth";
 export default config(
   withAuth({
     server: {
-      port: process.env.PORT,
+      port: Number(process.env.PORT) || 3001,
     },
     db: {
       provider: "postgresql",
-      url: process.env.DATABASE_URL,
+      url: process.env.DATABASE_URL ?? "postgres://localhost:5432",
     },
     storage: {
       images: {
@@ -208,6 +208,22 @@ export default config(
               createView: { fieldMode: "hidden" },
               itemView: { fieldMode: "hidden" },
             },
+          }),
+          typeOfCollaboration: text({
+            label: "Type of Collaboration",
+            validation: { isRequired: false },
+          }),
+          duration: text({
+            label: "Duration",
+            validation: { isRequired: false },
+          }),
+          status: text({
+            label: "Status",
+            validation: { isRequired: false },
+          }),
+          type: text({
+            label: "Type",
+            validation: { isRequired: false },
           }),
         },
       }),
