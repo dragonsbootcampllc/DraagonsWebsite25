@@ -27,13 +27,17 @@ export default function () {
           </div>
 
           <div className="flex w-full flex-row justify-center gap-4 max-md:w-full max-md:px-6 max-sm:flex-col">
-            <Button className="max-md:w-full">
+            <Button
+              className="max-md:w-full"
+              href="https://cal.com/team/dragons-bootcamp-llc/meeting"
+            >
               <div className="flex items-center justify-center gap-2">
                 <span>Jump on a call</span> <PhoneCall className="size-4" />
               </div>
             </Button>
             <Button
               className="flex items-center justify-center gap-2 max-md:w-full"
+              href="https://cal.com/team/dragons-bootcamp-llc/meeting"
               variant={ButtonVariant.Secondary}
             >
               <span>Sign up here</span> <MoveRight className="size-4" />

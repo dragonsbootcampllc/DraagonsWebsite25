@@ -8,8 +8,9 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 export default function ({ id, title, imageSrc, type }: SuccessStoryOverview) {
   return (
     <Link
-      href={`/blogs/success-stories/${id}`}
-      className="group/success-story-card relative flex h-full w-[400px] cursor-pointer select-none flex-col gap-4 overflow-hidden"
+      // href={`/blogs/success-stories/${id}`}
+      href={`/comming-soon`}
+      className={`group/success-story-card relative flex h-full w-[400px] cursor-pointer select-none flex-col gap-4 overflow-hidden ${id}`}
     >
       <div className="relative flex h-64 w-full items-center justify-center overflow-hidden rounded-2xl border-2 border-primary-850 bg-primary-950">
         <DotPattern

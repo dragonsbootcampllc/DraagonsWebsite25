@@ -39,11 +39,11 @@ export default function Home() {
         ],
     primaryButton: {
       children: "Book a Demo",
-      href: "#",
+      href: "https://cal.com/team/dragons-bootcamp-llc/meeting",
     },
     secondaryButton: {
       children: "Explore Solutions",
-      href: "#",
+      href: "comming-soon",
     },
   };
 

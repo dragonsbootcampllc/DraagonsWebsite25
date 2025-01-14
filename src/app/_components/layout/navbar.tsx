@@ -17,31 +17,34 @@ export default function Navbar({ className }: { className?: string }) {
     { label: "Home", href: "/" },
     {
       label: "Services",
-      href: "/services",
+      href: "/comming-soon",
       submenu: [
         {
           title: "Data-Driven Talent Selection",
-          href: "/services/data-driven-talent-selection",
+          // href: "/services/data-driven-talent-selection",
+          href: "/comming-soon",
           src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
           description: "Prepare for tech interviews like never before.",
         },
         {
           title: "n-Demand Technical Leadership",
-          href: "/services/on-demand-technical-leadership",
+          // href: "/services/on-demand-technical-leadership",
+          href: "/comming-soon",
           src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
           description:
             "Production ready Tailwind css components for your next project",
         },
         {
           title: "Outsourcing",
-          href: "/services/outsourcing",
+          // href: "/services/outsourcing",
+          href: "/comming-soon",
           src: "https://i.ibb.co/DR7GL9p/f84f933038694132624854208a70bc11.png",
           description:
             "Never write from scratch again. Go from idea to blog in minutes.",
         },
       ],
     },
-    { label: "About", href: "/about" },
+    { label: "About", href: "/comming-soon" },
   ];
 
   const checkScreenWidth = () => {
@@ -111,13 +114,16 @@ export default function Navbar({ className }: { className?: string }) {
         {isDesktop ? (
           <div className="flex items-center justify-center space-x-4 justify-self-end">
             <Button
-              href="/signup"
+              href="https://cal.com/team/dragons-bootcamp-llc/meeting"
               className="px-6 py-1"
               variant={ButtonVariant.Secondary}
             >
               Sign Up
             </Button>
-            <Button href="/contact" className="px-4 py-2">
+            <Button
+              href="https://cal.com/team/dragons-bootcamp-llc/meeting"
+              className="px-4 py-2"
+            >
               Book a Demo
             </Button>
           </div>

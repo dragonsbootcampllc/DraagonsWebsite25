@@ -104,13 +104,13 @@ const LINKS = [
   {
     title: "Solutions",
     links: [
-      { url: "#", title: "For Students", status: true },
-      { url: "#", title: "Be Job Ready", status: true },
-      { url: "#", title: "For Partners", status: true },
-      { url: "#", title: "Events Sponsor", status: true },
-      { url: "#", title: "Software Outsourcing", status: true },
-      { url: "#", title: "Get Talents", status: true },
-      { url: "#", title: "intern program managmenet", status: true },
+      { url: "#", title: "For Students", status: false },
+      { url: "#", title: "Be Job Ready", status: false },
+      { url: "#", title: "For Partners", status: false },
+      { url: "#", title: "Events Sponsor", status: false },
+      { url: "#", title: "Software Outsourcing", status: false },
+      { url: "#", title: "Get Talents", status: false },
+      { url: "#", title: "intern program managmenet", status: false },
     ],
   },
   {
@@ -120,7 +120,7 @@ const LINKS = [
       { url: "/", title: "Partners Use Cases", status: false },
       { url: "/", title: "Help Center", status: false },
       { url: "/", title: "Material", status: false },
-      { url: "/Contact", title: "Contact Us", status: true },
+      { url: "/Contact", title: "Contact Us", status: false },
       { url: "/", title: "Support", status: false },
     ],
   },
@@ -143,18 +143,16 @@ const LINKS = [
     title: "Legal",
     links: [
       {
-        url: "/privacy-policy",
+        url: "/legal/privacy-policy",
         title: "Privacy Policy",
         status: true,
       },
       {
-        url: "/terms-and-conditions",
+        url: "/legal/terms-and-conditions",
         title: "Terms and Conditions",
         status: true,
       },
-      { url: "/website/cookie-policy", title: "Cookie Policy", status: true },
-      { url: "/website/cookie-policy", title: "User Agreement", status: false },
-      { url: "/website/", title: "Partnership Agreement", status: false },
+      { url: "/legal/cookie-policy", title: "Cookie Policy", status: true },
     ],
   },
 ];
