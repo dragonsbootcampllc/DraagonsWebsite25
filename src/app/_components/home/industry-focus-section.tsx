@@ -35,7 +35,7 @@ export default function () {
     <div className="w-full px-2 py-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center">
         <Title>{title}</Title>
-        <div className="mx-auto grid h-full w-full max-w-7xl grid-cols-1 gap-6 md:grid-cols-4">
+        <div className="mx-auto grid h-full w-full max-w-7xl gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {industries.map((industry, index) => (
             <Card key={index} {...industry} />
           ))}

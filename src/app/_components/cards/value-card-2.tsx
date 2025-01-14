@@ -37,8 +37,9 @@ export default function ({
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="relative z-10">
-        <div className="py-5">
+
+      <div className="relative z-10 flex h-full flex-col justify-between">
+        <div className="flex h-fit flex-col py-5">
           <div className="mb-1 w-fit rounded-full bg-white px-3 py-1 text-sm font-semibold text-black transition-all duration-500 ease-in-out group-hover:bg-primary-400 group-hover:text-white">
             {label}
           </div>
@@ -51,16 +52,15 @@ export default function ({
           <p className="text-sm text-slate-500">{description}</p>
         </div>
 
-        <div className="relative w-full transition-transform duration-500 ease-in-out group-hover:-translate-y-2">
+        <div className="relative size-full flex-grow bg-blue-300 transition-transform duration-500 ease-in-out group-hover:-translate-y-2">
           <Image
-            className="m-0 h-full object-cover p-0 transition-opacity duration-500 group-hover:opacity-0"
+            className="m-0 size-full object-cover p-0 transition-opacity duration-500 group-hover:opacity-0"
             src={image ? (Array.isArray(image) ? image[0] : image) : ""}
-            width={350}
-            height={240}
+            fill
             alt="Card image 01"
           />
           <Image
-            className="absolute left-0 top-0 m-0 h-full object-cover p-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            className="absolute left-0 top-0 m-0 size-full object-cover p-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             src={
               image
                 ? Array.isArray(image)
@@ -68,8 +68,7 @@ export default function ({
                   : image
                 : ""
             }
-            width={350}
-            height={240}
+            fill
             alt="Card image 01 displaying on hover"
             aria-hidden="true"
           />

@@ -50,17 +50,23 @@ export default function ({
 
         {/* CTA */}
         {(primaryButton ?? secondaryButton) && (
-          <div className="flex gap-4">
+          <div className="flex w-full justify-center gap-4 max-[400px]:flex-col">
             {primaryButton && (
               <Button
                 {...primaryButton}
-                className={cn("px-6", primaryButton.className)}
+                className={cn(
+                  "px-6 max-[400px]:w-full",
+                  primaryButton.className,
+                )}
               />
             )}
             {secondaryButton && (
               <Button
                 {...secondaryButton}
-                className={cn("px-2 ", secondaryButton.className)}
+                className={cn(
+                  "px-2 max-[400px]:w-full",
+                  secondaryButton.className,
+                )}
                 variant={ButtonVariant.Secondary}
               />
             )}
@@ -72,12 +78,12 @@ export default function ({
       {children && (
         <div
           className={cn(
-            "flex w-full max-w-7xl translate-y-1/2 flex-col items-center justify-center",
+            "relative flex w-full max-w-7xl flex-col items-center justify-center pt-40",
             wrapperclassName,
           )}
         >
           <div className="z-10 h-full w-full">{children}</div>
-          <div className="absolute left-1/2 top-1/2 z-0 h-full w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-t from-transparent from-10% to-primary-650/50 blur-3xl"></div>
+          <div className="absolute left-1/2 top-1/2 z-0 h-full w-[120%] -translate-x-1/2 rounded-full bg-gradient-to-t from-transparent from-10% to-primary-650/50 blur-3xl"></div>
         </div>
       )}
     </div>

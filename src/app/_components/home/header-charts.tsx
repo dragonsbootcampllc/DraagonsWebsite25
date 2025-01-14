@@ -51,7 +51,7 @@ interface ChartOptions {
 
 function getLineChart(chartData: ChartData, chartOptions: ChartOptions) {
   if (!chartData) return null;
-  return <Line data={chartData} options={chartOptions} />;
+  return <Line data={chartData} options={chartOptions} className="size-full" />;
 }
 
 export default function () {
@@ -132,33 +132,35 @@ export default function () {
       {directors.map(({ title, chartData, num }, index) => (
         <ShineBorder
           key={index}
-          className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-2xl border bg-purple-800/20 shadow-[0_0_0_0_rgba(255,255,255,1)] transition-all hover:scale-105 hover:shadow-[0_0_.5rem_0rem_rgba(251,53,208,1)] md:shadow-xl"
+          className="relative flex aspect-square w-full flex-col items-center justify-center overflow-hidden rounded-2xl border bg-purple-800/20 shadow-[0_0_0_0_rgba(255,255,255,1)] transition-all hover:scale-105 hover:shadow-[0_0_.5rem_0rem_rgba(251,53,208,1)] md:shadow-xl"
           {...shineBorderProps}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 opacity-10" />
           <div
             className={cn(
-              "relative flex h-full min-h-20 w-full cursor-pointer flex-col justify-between p-4 text-white",
+              "relative flex size-full cursor-pointer flex-col justify-start p-4 text-white",
               !chartData && !num && "justify-center",
             )}
           >
             <h2
               className={cn(
-                "mb-2 select-none text-lg font-semibold text-white",
-                !chartData && !num && "text-center text-3xl",
+                "mb-2 select-none text-lg font-semibold text-white max-[1200px]:text-base max-lg:text-lg",
+                !chartData &&
+                  !num &&
+                  "text-center text-3xl max-[1200px]:text-xl max-lg:text-3xl",
               )}
             >
               {title}
             </h2>
 
             {num && (
-              <span className="mb-4 block select-none text-6xl font-bold text-white">
+              <span className="mb-4 block select-none text-6xl font-bold text-white max-[1200px]:text-4xl max-lg:text-6xl">
                 {num}
               </span>
             )}
 
             {chartData && (
-              <div className="relative w-full">
+              <div className="absolute left-1/2 top-1/2 z-0 size-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2">
                 {getLineChart(chartData, chartOptions)}
               </div>
             )}

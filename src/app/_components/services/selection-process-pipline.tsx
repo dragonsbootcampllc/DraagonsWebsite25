@@ -39,7 +39,6 @@ export default function AnimatedBeamDemo() {
   const div5Ref = useRef<HTMLDivElement>(null);
   const div6Ref = useRef<HTMLDivElement>(null);
   const div7Ref = useRef<HTMLDivElement>(null);
-  
 
   return (
     <div
@@ -48,9 +47,7 @@ export default function AnimatedBeamDemo() {
     >
       <div className="flex size-full max-h-[200px] max-w-lg flex-col items-stretch justify-between gap-10">
         <div className="flex flex-row items-center justify-between">
-          <div
-            className="flex flex-col items-center gap-2"
-          >
+          <div className="flex flex-col items-center gap-2">
             <Circle ref={div1Ref}>
               <Icons.googleDrive />
             </Circle>
