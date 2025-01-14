@@ -2,12 +2,14 @@ import Image from "next/image";
 import { BorderBeam } from "../ui";
 import Link from "next/link";
 import { cn } from "~/lib/utils";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export interface ValueCard2Props {
   title: string;
   description: string;
   label?: string;
-  image?: string | [string, string];
+  // image?: string | [string, string];
+  animationURL: string;
   link?: string;
 }
 
@@ -15,7 +17,8 @@ export default function ({
   title,
   description,
   label,
-  image,
+  // image,
+  animationURL,
   link,
 }: ValueCard2Props) {
   return (
@@ -52,8 +55,8 @@ export default function ({
           <p className="text-sm text-slate-500">{description}</p>
         </div>
 
-        <div className="relative size-full flex-grow bg-blue-300 transition-transform duration-500 ease-in-out group-hover:-translate-y-2">
-          <Image
+        <div className="relative size-full flex-grow transition-transform duration-500 ease-in-out group-hover:-translate-y-2">
+          {/* <Image
             className="m-0 size-full object-cover p-0 transition-opacity duration-500 group-hover:opacity-0"
             src={image ? (Array.isArray(image) ? image[0] : image) : ""}
             fill
@@ -71,7 +74,8 @@ export default function ({
             fill
             alt="Card image 01 displaying on hover"
             aria-hidden="true"
-          />
+          /> */}
+          <DotLottieReact src={animationURL} autoplay loop />
         </div>
       </div>
       <BorderBeam borderWidth={3} size={200} />

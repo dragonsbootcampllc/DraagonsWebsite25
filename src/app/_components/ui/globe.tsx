@@ -17,15 +17,15 @@ interface EarthProps {
 
 export default function ({
   className,
-  theta = 0.25,
+  theta = 0.3,
   dark = 1,
   scale = 1.1,
-  diffuse = 1.2,
-  mapSamples = 40000,
-  mapBrightness = 6,
-  baseColor = [0.4, 0.6509, 1],
-  markerColor = [1, 0, 0],
-  glowColor = [0.2745, 0.5765, 0.898],
+  diffuse = 0.4,
+  mapSamples = 16000,
+  mapBrightness = 1.2,
+  baseColor = [125 / 255, 104 / 255, 245 / 255],
+  markerColor = [154 / 255, 145 / 255, 251 / 255],
+  glowColor = [74 / 255, 35 / 255, 177 / 255],
 }: EarthProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -55,7 +55,16 @@ export default function ({
       opacity: 1,
       offset: [0, 0],
       markers: [
-        // longitude latitude
+        { location: [14.5995, 120.9842], size: 0.03 },
+        { location: [19.076, 72.8777], size: 0.1 },
+        { location: [23.8103, 90.4125], size: 0.05 },
+        { location: [30.0444, 31.2357], size: 0.07 },
+        { location: [39.9042, 116.4074], size: 0.08 },
+        { location: [-23.5505, -46.6333], size: 0.2 },
+        { location: [19.4326, -99.1332], size: 0.1 },
+        { location: [40.7128, -74.006], size: 0.31 },
+        { location: [34.6937, 135.5022], size: 0.25 },
+        { location: [41.0082, 28.9784], size: 0.06 },
       ],
       onRender: (state: Record<string, unknown>) => {
         // Called on every animation frame.

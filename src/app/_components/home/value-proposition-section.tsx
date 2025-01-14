@@ -26,7 +26,7 @@ export default function () {
         "Be a real software engineer and master problem-solving, data structures, algorithms, and more to become a proficient software engineer.",
       overlayStyle:
         "backdrop-blur-md bg-opacity-10 bg-[radial-gradient(136.22%_75.8%_at_50%_27.57%,__theme(colors.primary.900)_0%,_theme(colors.primary.850)_61.62%,_theme(colors.primary.600)_79.17%,_theme(colors.primary.700)_100%)]",
-      image: "/images/500x600.svg",
+      animationURL: "/lottie/leader-ship.lottie",
       link: "#",
     },
     {
@@ -36,7 +36,7 @@ export default function () {
         " Our six-month, full-time program is designed to help you master the skills needed to launch a career in software engineering.",
       overlayStyle:
         "backdrop-blur-md bg-opacity-10 bg-[radial-gradient(329.95%_173.05%_at_50.04%_100%,_theme(colors.primary.800)_0%,_theme(colors.primary.700)_0.52%,_theme(colors.primary.600)_18.71%,_theme(colors.primary.850)_28.65%,_theme(colors.primary.900)_100%)]",
-      image: "/images/500x600.svg",
+      animationURL: "/lottie/team.lottie",
       link: "#",
     },
     {
@@ -46,7 +46,7 @@ export default function () {
         "Short-term, intensive programs designed to help you master a specific skill or technology.",
       overlayStyle:
         "backdrop-blur-md bg-opacity-10 bg-[radial-gradient(136.22%_75.8%_at_50%_27.57%,__theme(colors.primary.900)_0%,_theme(colors.primary.850)_61.62%,_theme(colors.primary.600)_79.17%,_theme(colors.primary.700)_100%)]",
-      image: "/images/500x600.svg",
+      animationURL: "/lottie/outsource.lottie",
       link: "#",
     },
   ];

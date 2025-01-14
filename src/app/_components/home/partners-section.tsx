@@ -7,19 +7,22 @@ export default function () {
   const partners = [
     {
       id: 1,
-      imageSrc: "/images/500x600.svg",
+      imageSrc: "/images/partenars/actus-go.svg",
     },
     {
       id: 2,
-      imageSrc: "/images/500x600.svg",
+      imageSrc: "/images/partenars/levelup.png",
+      name: "Level Up ESG",
     },
     {
       id: 3,
-      imageSrc: "/images/500x600.svg",
+      imageSrc: "/images/partenars/neferdata.png",
+      name: "Neferdata",
     },
     {
       id: 4,
-      imageSrc: "/images/500x600.svg",
+      imageSrc: "/images/partenars/talabatak.webp",
+      name: "Talabatak",
     },
   ];
 
@@ -32,9 +35,22 @@ export default function () {
           {partners.map((partner) => (
             <div
               key={partner.id}
-              className="relative z-10 flex h-20 w-64 items-center justify-center overflow-hidden bg-blue-700 px-4"
+              className="flex flex-col items-center justify-center gap-2"
             >
-              <Image src={partner.imageSrc} alt="id" fill />
+              <div className="relative z-10 flex h-20 w-64 items-center justify-center overflow-hidden px-4">
+                <Image
+                  src={partner.imageSrc}
+                  alt="id"
+                  fill
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+
+              {partner.name && (
+                <span className="mt-2 text-center font-semibold">
+                  {partner.name}
+                </span>
+              )}
             </div>
           ))}
           <div className="absolute inset-x-0 top-[25%] z-0 h-80 w-full overflow-hidden [mask-image:radial-gradient(50%_50%,theme(colors.primary.100),transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,theme(colors.primary.150/80%),transparent_90%)] before:opacity-100 after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/1.8] after:w-[200%] after:rounded-[50%] after:border-2 after:border-b after:border-primary-800 after:bg-primary-900">

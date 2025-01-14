@@ -8,19 +8,19 @@ export default function () {
     {
       id: "1",
       title: "Neferdata: 50% faster AI product deployment.",
-      imageSrc: "/images/500x600.svg",
+      imageSrc: "/images/blogs/neferdata-dragons.png",
       type: BlogCategory.CustomerCaseStudy,
     },
     {
       id: "2",
       title: "Actus Go: 40% cost reduction.",
-      imageSrc: "/images/500x600.svg",
+      imageSrc: "/images/blogs/actus-go-dragons.png",
       type: BlogCategory.CustomerCaseStudy,
     },
     {
       id: "3",
       title: "LevelUp ESG: 15x team growth.",
-      imageSrc: "/images/500x600.svg",
+      imageSrc: "/images/blogs/levelup-esg-dragons.png",
       type: BlogCategory.CustomerCaseStudy,
     },
   ];

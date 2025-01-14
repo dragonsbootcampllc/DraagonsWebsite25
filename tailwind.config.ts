@@ -1,6 +1,32 @@
 import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
+/**
+ * Tailwind CSS configuration for `@radix-ui/react-animations`.
+ *
+ * This configuration is used to generate the animations used by Radix UI.
+ * It's based on the default Tailwind CSS configuration, but with some
+ * additional customizations to make the animations look nice with the Radix UI
+ * design system.
+ *
+ * The main changes are:
+ *
+ * - The `animation` property is set to `linear` by default, instead of the
+ *   default `ease` value. This makes the animations look more fluid and
+ *   natural.
+ * - The `keyframes` property is customized to add some additional keyframes
+ *   that are used by Radix UI.
+ * - The `colors` property is customized to add some additional colors that are
+ *   used by Radix UI.
+ *
+ * @example
+ * import { type Config } from "tailwindcss";
+ *
+ * export default {
+ *   // ... other configuration options ...
+ *   plugins: [require("@radix-ui/react-animations/tailwindcss")],
+ * } satisfies Config;
+ */
 export default {
   darkMode: ["class"],
   content: ["./src/**/*.tsx"],
