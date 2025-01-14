@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Description, Title } from "../typography";
 import { Sparkles } from "../ui";
 import { ValueCard2 } from "../cards";
 
 export default function () {
+  const [isMacView, setIsMacView] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMacView(window.innerWidth <= 1380);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const valuePropositionsData = [
     {
       label: "Explore Leadership",
@@ -40,16 +54,18 @@ export default function () {
   const title = "Strategic Technical Partner";
   const subtitle =
     "Three powerful solutions for transforming operations and driving success";
-  const description = [
-    "Dragons delivers comprehensive technical solutions through our unique combination of premium MENA engineering",
-    "talent and strategic U.S. market expertise. We provide fractional CTO services, dedicated development",
-    "teams, and innovative training tailored to drive your business forward.",
-  ];
+  const description = !isMacView
+    ? [
+        "Dragons delivers comprehensive technical solutions through our unique combination of premium MENA engineering",
+        "talent and strategic U.S. market expertise. We provide fractional CTO services, dedicated development",
+        "teams, and innovative training tailored to drive your business forward.",
+      ]
+    : "Dragons delivers comprehensive technical solutions through our unique combination of premium MENA engineering talent and strategic U.S. market expertise. We provide fractional CTO services, dedicated development teams, and innovative training tailored to drive your business forward.";
 
   return (
-    <div className="w-full">
-      <div className="z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-6 p-20 px-2">
-        <h3 className="text-balance text-center text-sm font-medium leading-none text-primary-100 sm:text-base md:text-lg lg:text-xl">
+    <div className="w-full p-4">
+      <div className="z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-6 p-20 px-2 max-md:gap-2">
+        <h3 className="text-balance text-center font-medium leading-none text-primary-100 sm:text-base md:text-lg lg:text-xl">
           {subtitle}
         </h3>
         <Title>{title}</Title>

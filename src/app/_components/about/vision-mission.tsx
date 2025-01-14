@@ -17,7 +17,7 @@ export default function () {
   };
 
   return (
-    <div className="flex gap-6">
+    <div className="flex gap-6 max-md:flex-col">
       <Card {...vision} />
       <Card {...mission} />
     </div>

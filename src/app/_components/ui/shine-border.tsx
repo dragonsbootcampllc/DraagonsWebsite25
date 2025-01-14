@@ -39,7 +39,7 @@ export default function ({
         } as React.CSSProperties
       }
       className={cn(
-        "relative min-h-[60px] w-fit min-w-[300px] place-items-center rounded-[--border-radius] bg-black text-white",
+        "relative w-fit place-items-center rounded-[--border-radius] bg-black text-white",
         className,
       )}
     >

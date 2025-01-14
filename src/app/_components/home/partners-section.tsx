@@ -32,7 +32,7 @@ export default function () {
           {partners.map((partner) => (
             <div
               key={partner.id}
-              className="relative z-10 flex h-20 w-64 items-center justify-center overflow-hidden bg-blue-700"
+              className="relative z-10 flex h-20 w-64 items-center justify-center overflow-hidden bg-blue-700 px-4"
             >
               <Image src={partner.imageSrc} alt="id" fill />
             </div>
