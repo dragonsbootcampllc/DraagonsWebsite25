@@ -158,6 +158,7 @@ const LINKS = [
     ],
   },
 ];
+
 const SocialMediaLinks = [
   {
     url: "https://www.youtube.com/@dragonsbootcampllc",
@@ -178,7 +179,7 @@ const SocialMediaLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-purple-800/20 rounded-t-[30px] overflow-hidden w-full relative">
+    <footer className="bg-primary-850/80 rounded-t-[30px] overflow-hidden w-svw relative">
       <div className=" h-full w-full bg-slate-950">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
       </div>
