@@ -4,7 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "~/trpc/react";
-import { Navbar } from "./_components/layout";
+import { Navbar, Footer } from "./_components/layout";
 import { Particles } from "./_components/ui";
 
 export const metadata: Metadata = {
@@ -29,6 +29,7 @@ export default function RootLayout({
           color="#ffffff"
           refresh
         />
+        <Footer />
       </body>
     </html>
   );
