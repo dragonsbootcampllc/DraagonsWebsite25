@@ -20,30 +20,30 @@ export default function () {
 
   const valuePropositionsData = [
     {
-      label: "Explore Leadership",
-      title: "On-Demand Technical Leadership",
+      label: "Explore Solutions",
+      title: "Time Drain",
       description:
-        "Be a real software engineer and master problem-solving, data structures, algorithms, and more to become a proficient software engineer.",
+        "3-4 months per single hiring cycle, from CV filtering to endless interviews.",
       overlayStyle:
         "backdrop-blur-md bg-opacity-10 bg-[radial-gradient(136.22%_75.8%_at_50%_27.57%,__theme(colors.primary.900)_0%,_theme(colors.primary.850)_61.62%,_theme(colors.primary.600)_79.17%,_theme(colors.primary.700)_100%)]",
       animationURL: "/lottie/leader-ship.lottie",
       link: "#",
     },
     {
-      label: "View  Options",
-      title: "Scalable Development Teams",
+      label: "Learn More",
+      title: "Hidden Expenses",
       description:
-        " Our six-month, full-time program is designed to help you master the skills needed to launch a career in software engineering.",
+        "Over $50,000 invested in each hire—costs only rise as you scale.",
       overlayStyle:
         "backdrop-blur-md bg-opacity-10 bg-[radial-gradient(329.95%_173.05%_at_50.04%_100%,_theme(colors.primary.800)_0%,_theme(colors.primary.700)_0.52%,_theme(colors.primary.600)_18.71%,_theme(colors.primary.850)_28.65%,_theme(colors.primary.900)_100%)]",
       animationURL: "/lottie/team.lottie",
       link: "#",
     },
     {
-      label: "Discover Outsourcing",
-      title: " Software Outsourcing",
+      label: "Get Started",
+      title: "Blind Decisions",
       description:
-        "Short-term, intensive programs designed to help you master a specific skill or technology.",
+        "Building teams on assumptions and resumes alone—it's like pure guesswork.",
       overlayStyle:
         "backdrop-blur-md bg-opacity-10 bg-[radial-gradient(136.22%_75.8%_at_50%_27.57%,__theme(colors.primary.900)_0%,_theme(colors.primary.850)_61.62%,_theme(colors.primary.600)_79.17%,_theme(colors.primary.700)_100%)]",
       animationURL: "/lottie/outsource.lottie",
@@ -51,16 +51,16 @@ export default function () {
     },
   ];
 
-  const title = "Strategic Technical Partner";
+  const title = "The Hidden Cost of Outdated Tech Hiring";
   const subtitle =
-    "Three powerful solutions for transforming operations and driving success";
+    "Hidden Cost";
   const description = !isMacView
     ? [
-        "Dragons delivers comprehensive technical solutions through our unique combination of premium MENA engineering",
-        "talent and strategic U.S. market expertise. We provide fractional CTO services, dedicated development",
-        "teams, and innovative training tailored to drive your business forward.",
+        "Outdated tech hiring drains budgets, ",
+        "stalls innovation, and risks losing top talent",
+        "—costs no startup can afford.",
       ]
-    : "Dragons delivers comprehensive technical solutions through our unique combination of premium MENA engineering talent and strategic U.S. market expertise. We provide fractional CTO services, dedicated development teams, and innovative training tailored to drive your business forward.";
+    : "Outdated tech hiring drains budgets, stalls innovation, and risks losing top talent—costs no startup can afford.";
 
   return (
     <div className="w-full p-4">
