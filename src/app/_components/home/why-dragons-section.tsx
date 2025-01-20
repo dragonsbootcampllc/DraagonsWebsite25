@@ -40,6 +40,36 @@ export default function () {
                 />
               </div>
             </div>
+            <div className="flex h-full w-[200px] items-center justify-center">
+              <div className="relative flex h-4/5 w-full items-center justify-center overflow-hidden rounded-xl bg-blue-50">
+                <Image
+                  src="/images/our-team/MoALI.png"
+                  alt="Card image 01"
+                  className="h-full w-full object-cover"
+                  fill
+                />
+              </div>
+            </div>
+            <div className="flex h-full w-[200px] items-center justify-center">
+              <div className="relative flex h-4/5 w-full items-center justify-center overflow-hidden rounded-xl bg-blue-50">
+                <Image
+                  src="/images/our-team/Ahmed_Nageh.jpg"
+                  alt="Card image 01"
+                  className="h-full w-full object-cover"
+                  fill
+                />
+              </div>
+            </div>
+            <div className="flex h-full w-[200px] items-center justify-center">
+              <div className="relative flex h-4/5 w-full items-center justify-center overflow-hidden rounded-xl bg-blue-50">
+                <Image
+                  src="/images/our-team/AhmedSherif.jpeg"
+                  alt="Card image 01"
+                  className="h-full w-full object-cover"
+                  fill
+                />
+              </div>
+            </div>
           </Marquee>
           <div className="absolute left-0 top-0 z-[-1] h-full w-full bg-[radial-gradient(#5875d653_1px,#06080e_1px)] bg-[size:20px_20px]" />
         </div>
