@@ -43,26 +43,27 @@ const ShinyButton = React.forwardRef<HTMLButtonElement, ShinyButtonProps>(
         {...animationProps}
         {...props}
         className={cn(
-          "relative rounded-full px-8 py-4 text-sm font-semibold backdrop-blur-xl transition-shadow duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/10%)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]",
+          "relative  px-8 py-4 rounded-lg bg-white text-sm font-semibold backdrop-blur-xl transition-shadow duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/10%)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]",
           className,
         )}
       >
-        <span
-          className="relative block size-full uppercase tracking-wide text-[rgb(0,0,0,65%)] dark:text-[rgb(255,255,255,90%)]"
-          style={{
-            maskImage:
-              "linear-gradient(-75deg,hsl(var(--primary)) calc(var(--x) + 20%),transparent calc(var(--x) + 30%),hsl(var(--primary)) calc(var(--x) + 100%))",
-          }}
-        >
-          {children}
-        </span>
-        <span
-          style={{
-            mask: "linear-gradient(rgb(0,0,0), rgb(0,0,0)) content-box,linear-gradient(rgb(0,0,0), rgb(0,0,0))",
-            maskComposite: "exclude",
-          }}
-          className="absolute inset-0 z-10 block rounded-[inherit] bg-[linear-gradient(-75deg,hsl(var(--primary)/10%)_calc(var(--x)+20%),hsl(var(--primary)/50%)_calc(var(--x)+25%),hsl(var(--primary)/10%)_calc(var(--x)+100%))] p-px"
-        ></span>
+  <span
+  className="relative block size-full tracking-wide text-black"
+  style={{
+    maskImage:
+      "linear-gradient(-75deg, white calc(var(--x) + 20%), black calc(var(--x) + 30%), white calc(var(--x) + 100%))",
+  }}
+>
+  {children}
+</span>
+<span
+  style={{
+    mask: "linear-gradient(#000, #000) content-box, linear-gradient(#000, #fff)",
+    maskComposite: "exclude",
+  }}
+  className="absolute inset-0 z-10 block rounded-[inherit] bg-[linear-gradient(-75deg,rgba(255,255,255,0.1)_calc(var(--x)+20%),rgba(255,255,255,0.5)_calc(var(--x)+25%),rgba(255,255,255,0.1)_calc(var(--x)+100%))] p-px"
+></span>
+
       </motion.button>
     );
   },

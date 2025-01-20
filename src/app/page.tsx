@@ -56,7 +56,6 @@ export default function Home() {
       <WhyDragonsSection />
       <SuccessStorySection />
       <IndustryFocusSection />
-      <PartnersSection />
       <div className="size-full px-2 pt-52">
         <CTA />
       </div>
