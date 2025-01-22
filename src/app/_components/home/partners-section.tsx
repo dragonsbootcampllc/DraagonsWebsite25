@@ -2,10 +2,10 @@ import Image from 'next/image';
 import { cn } from '~/lib/utils';
 
 const companies = [
-  { name: 'Actusgo', logo: '/images/partenars/actusgo.svg' },
-  { name: 'DigitalOcean', logo: '/images/partenars/DigitalOcean_logo.svg' },
+  { name: 'Actusgo', logo: '/images/partenars/Actusgo.svg' },
+  { name: 'DigitalOcean', logo: '/images/partenars/digitalocean2.svg' },
   { name: 'levelup', logo: '/images/partenars/levelup.png' },
-  { name: 'Neferdata', logo: '/images/partenars/Neferdata.svg' },
+  { name: 'Neferdata', logo: '/images/partenars/nefer.svg' },
   { name: 'Talabatak', logo: '/images/partenars/talabatak.svg' },
   { name: 'Course Topia', logo: '/images/partenars/Course-Topia-Fav.svg' },
 ];
@@ -32,7 +32,7 @@ export default function PartnersSection(): JSX.Element {
                   src={company.logo}
                   width={90}
                   height={90}
-                  className="" // Responsive and centered
+                  className="rounded-2xl" // Responsive and centered
                   alt={company.name}
                 />
                   <p className="text-2xl ml-1 text-gray-400 font-semibold">{company.name}</p>
