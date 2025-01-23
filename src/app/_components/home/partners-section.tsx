@@ -4,7 +4,7 @@ import { cn } from '~/lib/utils';
 const companies = [
   { name: 'Actusgo', logo: '/images/partenars/Actusgo.svg' },
   { name: 'DigitalOcean', logo: '/images/partenars/digitalocean2.svg' },
-  { name: 'levelup', logo: '/images/partenars/levelup.png' },
+  { name: 'levelup', logo: '/images/partenars/levelup.svg' },
   { name: 'Neferdata', logo: '/images/partenars/nefer.svg' },
   { name: 'Talabatak', logo: '/images/partenars/talabatak.svg' },
   { name: 'Course Topia', logo: '/images/partenars/Course-Topia-Fav.svg' },
@@ -22,16 +22,16 @@ export default function PartnersSection(): JSX.Element {
           TRUSTED BY LEADING TEAMS
         </h3>
         <div className="relative mt-10">
-          <div className="grid grid-cols-2 place-items-center gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          <div className="grid grid-cols-1 place-items-center gap-14 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {companies.map((company, idx) => (
               <div
                 key={idx}   
-                className="flex h-24 w-full items-center justify-center p-2 transition-transform duration-300 hover:scale-105" // Centering container with hover effect
+                className="flex flex-col md:flex-row h-24 w-full items-center justify-center p-2 transition-transform duration-300 hover:scale-105" // Centering container with hover effect
               >
                 <Image
                   src={company.logo}
-                  width={90}
-                  height={90}
+                  width={80}
+                  height={80}
                   className="rounded-2xl" // Responsive and centered
                   alt={company.name}
                 />
