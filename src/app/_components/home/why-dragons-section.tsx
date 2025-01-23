@@ -15,14 +15,14 @@ import Image from "next/image";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function () {
-  const title = "Accelerate Growth with Dragons' Proven Excellence";
+  const title = "Our Solution";
   const cardsData: BentoCardProps[] = [
     {
       Icon: TbDatabase,
       className: "col-span-3 lg:col-span-2 select-none cursor-pointer",
-      name: "Data-Driven Talent Selection",
+      name: "Talent Intelligence™",
       description:
-        "Our proprietary assessment system ensures you get the right technical talent for your specific needs.",
+        "See how developers truly perform in real-world scenarios - from code quality to team dynamics. No more surface-level assessments.",
       href: "#",
       background: (
         <div className="absolute z-[-1] h-full w-full px-6">
@@ -40,6 +40,36 @@ export default function () {
                 />
               </div>
             </div>
+            <div className="flex h-full w-[200px] items-center justify-center">
+              <div className="relative flex h-4/5 w-full items-center justify-center overflow-hidden rounded-xl bg-blue-50">
+                <Image
+                  src="/images/our-team/MoALI.png"
+                  alt="Card image 01"
+                  className="h-full w-full object-cover"
+                  fill
+                />
+              </div>
+            </div>
+            <div className="flex h-full w-[200px] items-center justify-center">
+              <div className="relative flex h-4/5 w-full items-center justify-center overflow-hidden rounded-xl bg-blue-50">
+                <Image
+                  src="/images/our-team/Ahmed_Nageh.jpg"
+                  alt="Card image 01"
+                  className="h-full w-full object-cover"
+                  fill
+                />
+              </div>
+            </div>
+            <div className="flex h-full w-[200px] items-center justify-center">
+              <div className="relative flex h-4/5 w-full items-center justify-center overflow-hidden rounded-xl bg-blue-50">
+                <Image
+                  src="/images/our-team/AhmedSherif.jpeg"
+                  alt="Card image 01"
+                  className="h-full w-full object-cover"
+                  fill
+                />
+              </div>
+            </div>
           </Marquee>
           <div className="absolute left-0 top-0 z-[-1] h-full w-full bg-[radial-gradient(#5875d653_1px,#06080e_1px)] bg-[size:20px_20px]" />
         </div>
@@ -49,9 +79,9 @@ export default function () {
     {
       Icon: FaDollarSign,
       className: "col-span-3 lg:col-span-1 select-none cursor-pointer",
-      name: "Strategic Cost Efficiency",
+      name: "Data-Rich Decisions",
       description:
-        "Achieve significant savings while maintaining high-quality technical delivery through our MENA talent pool.",
+        "Make choices based on comprehensive talent insights - technical skills, work style, and team fit. Every hire backed by evidence.",
       href: "#",
       background: (
         <div className="absolute z-[-1] h-full w-full">
@@ -71,9 +101,9 @@ export default function () {
     {
       Icon: PiGlobe,
       className: "col-span-3 lg:col-span-1 select-none cursor-pointer",
-      name: "Cross-Cultural Integration",
+      name: "Premium MENA Talent",
       description:
-        "Experience seamless collaboration through our proven cross-cultural integration methods.",
+        "Access the top 1% of tech talent from an untapped market. Pre-vetted, ready to deliver, at a fraction of the cost.",
       href: "#",
       background: (
         <div className="absolute z-[-1] h-full w-full">
@@ -93,9 +123,9 @@ export default function () {
     {
       Icon: FaUsers,
       className: "col-span-3 lg:col-span-2 select-none cursor-pointer",
-      name: "Global Talent Pool",
+      name: "Fast & Cost-Effective",
       description:
-        "Access a diverse global talent pool, including U.S. professionals, to meet your business needs.",
+        "Cut hiring costs by 75% and reduce hiring time from months to minutes. Scale your team without breaking your budget.",
       href: "#",
       background: (
         <div className="absolute z-[-1] h-full w-full">
