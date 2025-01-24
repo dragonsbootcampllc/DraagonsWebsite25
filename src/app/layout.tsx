@@ -7,7 +7,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 import { Navbar, Footer } from "./_components/layout";
 import { Particles } from "./_components/ui";
 
-import IntercomeChat from './chatbot';
+import IntercomeChat from "./chatbot";
 import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {

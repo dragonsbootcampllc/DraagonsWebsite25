@@ -7,7 +7,7 @@ export const intercomRouter = createTRPCRouter({
     .input(z.object({ email: z.string().email() }))
     .query(({ input }) => {
       const secretKey = process.env.INTERCOM_SECRET_KEY;
-      
+
       if (!secretKey) {
         throw new Error("Intercom secret key not configured");
       }
