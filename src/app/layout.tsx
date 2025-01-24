@@ -8,6 +8,7 @@ import { Navbar, Footer } from "./_components/layout";
 import { Particles } from "./_components/ui";
 
 import IntercomeChat from './chatbot';
+import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Dragons",
@@ -22,8 +23,12 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable}`}>
       <body className="dark box-border w-dvw overflow-hidden overflow-y-auto bg-primary-900 pt-12">
         <Navbar />
-        <TRPCReactProvider>{children}</TRPCReactProvider>
-        <IntercomeChat />
+        <TRPCReactProvider>
+          {children}
+          <SessionProvider>
+            <IntercomeChat />
+          </SessionProvider>
+        </TRPCReactProvider>
         <div className="fixed inset-0 z-[-1] size-full bg-[radial-gradient(circle,_theme(colors.primary.500/12%)_0%,_theme(colors.primary.700/10%)_40%,_theme(colors.primary.700/10%)_50%,_theme(colors.primary.500/12%)_100%)]" />
         <Particles
           className="fixed inset-0 z-[-1]"
