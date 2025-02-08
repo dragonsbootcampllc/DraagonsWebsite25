@@ -124,7 +124,7 @@ export default function Navbar({ className }: { className?: string }) {
               href="https://cal.com/team/dragons-bootcamp-llc/meeting"
               className="px-4 py-2"
             >
-              Book a Demo
+              Book a Short Call
             </Button>
           </div>
         ) : (
