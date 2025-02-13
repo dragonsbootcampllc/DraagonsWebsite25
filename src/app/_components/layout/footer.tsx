@@ -205,11 +205,11 @@ export default function Footer() {
               Prepare for the future. Just say the magic word: ready for a
               sprint?
             </p>
-            <p className="relative mt-4 block text-lg">Address:</p>
-            <p className="relative block text-lg">
-              USA Inc. (HQ), 1309 Coffeen Avenue, STE 1200, Sheridan, WY 82801,
-              USA
-            </p>
+            <p className="relative mt-4 block text-lg">Mailing Address:</p>
+            <address className="relative block text-lg">
+              <p className="mt-2">30 N Gould St Ste R</p>
+              <p className="mt-2">Sheridan, Wyoming 82801</p>
+            </address>
 
             <p className="mt-4 max-w-xs font-bold text-white">
               <span className="relative text-lg">
